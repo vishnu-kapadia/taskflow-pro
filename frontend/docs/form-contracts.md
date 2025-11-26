@@ -1,17 +1,33 @@
-# API Form Contracts — TaskFlow Pro
+# Form Contracts — TaskFlow Pro
 
-This document specifies request/response JSON for auth endpoints used by the frontend.
-
----
-
-## POST /api/register
-**Description**: Register new user (Sanctum cookie flow expects /sanctum/csrf-cookie call first).
-
-**Request (JSON)**:
+## Login POST /login
 ```json
 {
-  "name": "string, required, 1..255",
-  "email": "string, required, email format, unique",
-  "password": "string, required, min:8",
-  "password_confirmation": "string, required, must match password"
+  "email": "string",
+  "password": "string"
 }
+
+// Expected Errors
+{
+  "errors": {
+    "email": ["Invalid credentials"],
+    "password": ["Incorrect password"]
+  }
+}
+
+// Registration POST/register
+{
+  "name": "string",
+  "email": "string",
+  "password": "string"
+}
+
+// Expected Errors
+{
+  "errors": {
+    "email": ["Email already taken"],
+    "password": ["Password too weak"]
+  }
+}
+
+

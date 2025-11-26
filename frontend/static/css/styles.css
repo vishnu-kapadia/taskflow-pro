@@ -59,6 +59,34 @@ display: block;
     margin-bottom: 0.5rem;
 }
 
+/* === Form Layout (Day 2) === */
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-hint {
+  font-size: 0.875rem;
+  color: #555;
+  margin-top: 0.25rem;
+}
+
+.form-error {
+  color: #b00020;
+  margin-bottom: 1rem;
+}
+
+.btn-primary {
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  background-color: #0078ff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+
 /* Responsive tweaks */
 @media (max-width: 600px) {
     .kanban {
@@ -69,3 +97,4 @@ display: block;
         display: none;
     }
 }
+
