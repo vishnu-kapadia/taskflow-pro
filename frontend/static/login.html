@@ -12,6 +12,100 @@
 </head>
 
 <body>
+
+    <header class="site-header">
+        <div class="container">
+            <div class="site-brand"><a href="index.html">TaskFlow Pro</a></div>
+            <nav class="site-nav" aria-label="Primary">
+                <ul>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="register.html">Register</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main class="container">
+        <section aria-labelledby="login-title" class="card" id="login-section">
+            <h2 id="login-title">Sign in to your account</h2>
+
+            <!-- Form-level error region -->
+            <div id="login_errors" class="form-error" role="alert" aria-live="polite" hidden></div>
+
+            <form id="login-form" action="#" method="post" novalidate>
+
+                <fieldset>
+                    <legend>Login credentials</legend>
+
+                    <div class="form-group">
+                        <label for="login_email">Email</label>
+                        <input id="login_email" name="email" type="email" autocomplete="email" required
+                            aria-describedby="login_email_help" pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$">
+                        <div id="login_email_help" class="form-hint">Use the email you registered with.</div>
+                        <div id="login_email_error" class="form-error" role="status" aria-live="polite"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="login_password">Password</label>
+                        <input id="login_password" name="password" type="password" autocomplete="current-password"
+                            required minlength="8" aria-describedby="login_password_help">
+                        <div id="login_password_help" class="form-hint">Minimum 8 characters.</div>
+                        <div id="login_password_error" class="form-error" role="status" aria-live="polite"></div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Sign in</button>
+                </fieldset>
+            </form>
+
+            <p class="text-muted">Don't have an account? <a href="register.html">Create one</a>.</p>
+        </section>
+
+        <!-- TODO: React mount for login enhancements -->
+    </main>
+
+    <script>
+        (function () {
+            const form = document.getElementById('login_form');
+            const formError = document.getElementById('login_errors');
+
+            function clearFieldErrors() {
+                document.getElementById('login_email_error').textContent = '';
+                document.getElementById('login_password_error').textContent = '';
+            }
+
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                formError.hidden = true;
+                formError.textContent = '';
+                clearFieldErrors();
+
+                const email = form.email.value.trim();
+                const password = form.password.value;
+
+                let hasError = false;
+                if (!email || !/.+@.+\..+/.test(email)) {
+                    document.getElementById('login_email_error').textContent = 'Please enter a valid email.';
+                    hasError = true;
+                }
+                if (!password || password.length < 8) {
+                    document.getElementById('login_password_error').textContent = 'Password must be at least 8 characters.';
+                    hasError = true;
+                }
+
+                if (hasError) {
+                    formError.hidden = false;
+                    formError.textContent = 'Please fix the errors above.';
+                    return;
+                }
+
+                // TODO: Replace with backend call:
+                // 1) GET /sanctum/csrf-cookie
+                // 2) POST /api/login with credentials (withCredentials: true)
+                formError.hidden = false;
+                formError.textContent = 'Client-side validation passed (placeholder).';
+            });
+        })();
+    </script>
+
     <main>
         <h1>Login</h1>
         <!-- Accessible login form skeleton for later hooking to React -->
@@ -27,6 +121,7 @@
             <button type="submit">Sign in</button>
         </form>
     </main>
+
 </body>
 
 </html>

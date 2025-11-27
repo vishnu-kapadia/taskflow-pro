@@ -12,6 +12,116 @@
 </head>
 
 <body>
+
+    <header class="site-header">
+        <div class="container">
+            <div class="site-brand"><a href="index.html">TaskFlow Pro</a></div>
+            <nav class="site-nav" aria-label="Primary">
+                <ul>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="register.html">Register</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section aria-labelledby="register-title" class="card" id="register-section">
+            <h2 id="register-title">Create an account</h2>
+
+            <!-- Form-level error region -->
+            <div id="register_errors" class="form-error" role="alert" aria-live="polite" hidden></div>
+
+            <form id="register-form" action="#" method="post" novalidate>
+
+                <fieldset>
+                    <legend>Account information</legend>
+
+                    <div class="form-group">
+                        <label for="register_name">Full name</label>
+                        <input id="register_name" name="name" type="text" autocomplete="name" required>
+                        <div id="register_name_error" class="form-error" role="status" aria-live="polite"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="register_email">Email</label>
+                        <input id="register_email" name="email" type="email" autocomplete="email" required
+                            aria-describedby="register_email_help" pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$">
+                        <div id="register_email_help" class="form-hint">We’ll send a confirmation email.</div>
+                        <div id="register_email_error" class="form-error" role="status" aria-live="polite"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="register_password">Password</label>
+                        <input id="register_password" name="password" type="password" autocomplete="new-password"
+                            required minlength="8">
+                        <div id="register_password_error" class="form-error" role="status" aria-live="polite"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="register_password_confirmation">Confirm password</label>
+                        <input id="register_password_confirmation" name="password_confirmation" type="password"
+                            autocomplete="new-password" required>
+                        <div id="register_password_confirmation_error" class="form-error" role="status"
+                            aria-live="polite"></div>
+                    </div>
+
+                </fieldset>
+
+                <button type="submit" class="btn btn-primary">Create account</button>
+            </form>
+
+            <p class="text-muted">Already have an account? <a href="login.html">Sign in</a>.</p>
+        </section>
+
+        <!-- TODO: React mount for registration enhancements -->
+    </main>
+
+    <script>
+        (function () {
+            const form = document.getElementById('register_form');
+            const formError = document.getElementById('register_errors');
+
+            function clearErrors() {
+                ['register_name_error', 'register_email_error', 'register_password_error', 'register_password_confirmation_error'].forEach(id => {
+                    document.getElementById(id).textContent = '';
+                });
+            }
+
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                formError.hidden = true;
+                formError.textContent = '';
+                clearErrors();
+
+                const name = form.name.value.trim();
+                const email = form.email.value.trim();
+                const password = form.password.value;
+                const confirm = form.password_confirmation.value;
+
+                let hasError = false;
+                if (!name) { document.getElementById('register_name_error').textContent = 'Please provide your name.'; hasError = true; }
+                if (!email || !/.+@.+\..+/.test(email)) { document.getElementById('register_email_error').textContent = 'Please enter a valid email.'; hasError = true; }
+                if (!password || password.length < 8) { document.getElementById('register_password_error').textContent = 'Password must be at least 8 chars.'; hasError = true; }
+                if (password !== confirm) { document.getElementById('register_password_confirmation_error').textContent = 'Passwords do not match.'; hasError = true; }
+
+                if (hasError) {
+                    formError.hidden = false;
+                    formError.textContent = 'Please fix the errors above.';
+                    return;
+                }
+
+                // TODO: call backend API:
+                // 1) GET /sanctum/csrf-cookie
+                // 2) POST /api/register with { name, email, password, password_confirmation } and withCredentials
+                formError.hidden = false;
+                formError.textContent = 'Client-side validation passed (placeholder).';
+            });
+        })();
+    </script>
+
+
+
     <main>
         <h1>Create Account</h1>
 
@@ -34,6 +144,7 @@
             <button type="submit">Create account</button>
         </form>
     </main>
+
 </body>
 
 </html>
