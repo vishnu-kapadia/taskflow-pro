@@ -21,6 +21,11 @@ header, main, footer, aside, nav, section, article {
 }
 
 /* Kanban styles */
+=======
+display: block;
+}
+
+
 .kanban {
     display: flex;
     gap: 1rem;
@@ -39,6 +44,7 @@ header, main, footer, aside, nav, section, article {
     margin: 0.5rem 0;
     border-radius: 4px;
 }
+
 
 /* Form hint & error placeholders */
 .form-hint {
@@ -88,4 +94,6 @@ header, main, footer, aside, nav, section, article {
         display: none;
     }
 }
+
+
 

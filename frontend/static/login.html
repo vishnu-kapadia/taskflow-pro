@@ -12,6 +12,7 @@
 </head>
 
 <body>
+
     <header class="site-header">
         <div class="container">
             <div class="site-brand"><a href="index.html">TaskFlow Pro</a></div>
@@ -104,6 +105,23 @@
             });
         })();
     </script>
+
+    <main>
+        <h1>Login</h1>
+        <!-- Accessible login form skeleton for later hooking to React -->
+        <form action="#" method="post" aria-describedby="login-desc" novalidate>
+            <p id="login-desc">Enter your email and password to sign in.</p>
+
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" autocomplete="username" required>
+
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" autocomplete="current-password" required>
+
+            <button type="submit">Sign in</button>
+        </form>
+    </main>
+
 </body>
 
 </html>
