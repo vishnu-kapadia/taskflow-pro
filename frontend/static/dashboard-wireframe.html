@@ -14,19 +14,22 @@
 </head>
 
 <body>
-    <header>
-        <h1>Dashboard</h1>
 
-        <nav aria-label="User">
-
-            <nav>
-
-                <a href="#">My profile</a>
-                <a href="#">Logout</a>
+    <header class="site-header">
+        <div class="container">
+            <div class="site-brand">TaskFlow Pro</div>
+            <h1>Dashboard</h1>
+            <nav class="site-nav" aria-label="User">
+                <ul>
+                    <li><a href="#">My profile</a></li>
+                    <li><a href="#">Logout</a></li>
+                </ul>
             </nav>
+        </div>
     </header>
-    <main>
-        <aside aria-labelledby="Sidebar" id="sidebar">
+
+    <main class="container layout">
+        <aside class="sidebar" aria-labelledby="Sidebar" id="sidebar">
             <nav>
                 <ul>
                     <li><a href="#">Workspaces</a></li>
@@ -36,14 +39,16 @@
             </nav>
         </aside>
 
-        <section id="main-area" aria-labelledby="project-heading">
+        <section class="main-area" id="main-area" aria-labelledby="project-heading">
             <h2 id="project-heading">Current projects</h2>
             <!-- Placeholder for React mount -->
-            <div data-mount="taskflow-dashboard" aria-live="polite">
+            <div class="card" data-mount="taskflow-dashboard" aria-live="polite">
                 <!-- TODO: React will mount here -->
+                <p class="text-muted">Reach mount placeholder</p>
             </div>
         </section>
     </main>
+
 </body>
 
 </html>

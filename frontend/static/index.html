@@ -15,25 +15,28 @@
 </head>
 
 <body>
-    <header>
-        <nav aria-label="Primary">
-            <a href="index.html">TaskFlow Pro</a>
-            <ul>
-                <li><a href="login.html">Login</a></li>
-                <li><a href="register.html">Register</a></li>
-            </ul>
-        </nav>
+
+    <header class="site-header">
+        <div class="container">
+            <div class="site-brand"><a href="index.html">TaskFlow Pro</a></div>
+            <nav class="site-nav" aria-label="Primary">
+                <ul>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="register.html">Register</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
-    <main>
-        <section aria-labelledby="hero-heading" id="hero">
+
+    <main class="container">
+        <section id="hero" aria-labelledby="hero-heading" class="card">
 
             <h1 id="hero-heading">Collaborative task &amp; project management for teams.</h1>
-
             <p>Organise work with boards, projects, and real-time collaboration.</p>
-            <a href="register.html">Get started - it's free</a>
+            <a class="btn btn-primary" href="register.html">Get started - it's free</a>
         </section>
 
-        <section aria-labelledby="features-heading" id="features">
+        <section id="features" aria-labelledby="features-heading" class="m-1">
             <h2 id="features-heading">Features</h2>
             <ul>
                 <li>Workspace &amp; Projects</li>
@@ -42,9 +45,11 @@
             </ul>
         </section>
     </main>
-    <footer>
-        <p>&copy; <span id="year">2025</span> TaskFlow Pro </p>
+
+    <footer class="container text-center p-1">
+        <p>&copy; <span id="year">2025</span> TaskFlow Pro</p>
     </footer>
+
 </body>
 
 </html>
