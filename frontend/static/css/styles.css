@@ -227,6 +227,18 @@ header, main, footer, aside, nav, section, article {
     outline-offset: 2px;
 }
 
+/* Todo widget styles */
+
+.tfp-todo-wrap { margin-top: 0.5rem; }
+.tfp-todo { display:block; }
+.tfp-todo-heading { margin: 0 0 .5rem; font-size: 1.1rem; }
+.tfp-controls .tfp-input { flex: 1 1 auto; min-width: 0; }
+.tfp-aria-live { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; } /* keep announcements accessible but visually hidden */
+.tfp-todo-list .tfp-empty { padding: .5rem; }
+.tfp-task { padding: .5rem; display:flex; align-items:center; justify-content:space-between; }
+.tfp-task-title { font-weight:500; }
+.tfp-delete { background:transparent; border:0; color:var(--color-primary); padding:.25rem .5rem; }
+
 /* Responsive rules */
 @media (max-width:600px) {
   .kanban{flex-direction:column}
