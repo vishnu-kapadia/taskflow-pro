@@ -10,22 +10,32 @@
 
     <title>Dashboard - TaskFlow Pro (Wireframe)</title>
 
+    <!-- Bootstrap 5 css -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
     <link rel="stylesheet" href="css/styles.css" type="text/css">
 </head>
 
 <body>
 
     <header class="site-header">
-        <div class="container">
-            <div class="site-brand">TaskFlow Pro</div>
-            <h1>Dashboard</h1>
-            <nav class="site-nav" aria-label="User">
-                <ul>
-                    <li><a href="#">My profile</a></li>
-                    <li><a href="#">Logout</a></li>
-                </ul>
-            </nav>
-        </div>
+        <nav class="navbar navbar-expand-md" role="navigation" aria-label="User navigation">
+            <div class="container">
+                <a class="navbar-brand site-brand" href="index.html">TaskFlow Pro</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#dashNav"
+                    aria-controls="dashNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="dashNav">
+                    <ul class="navbar-nav ms-auto site-nav">
+                        <li class="nav-item"><a class="nav-link" href="#">My profile</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
     </header>
 
     <main class="container layout">
@@ -39,8 +49,8 @@
             </nav>
         </aside>
 
-        <section class="main-area" id="main-area" aria-labelledby="project-heading">
-            <h2 id="project-heading">Current projects</h2>
+        <section class="main-area" id="main-area" aria-labelledby="projects-heading">
+            <h2 id="projects-heading">Current projects</h2>
             <!-- Placeholder for React mount -->
             <div class="card" data-mount="taskflow-dashboard" aria-live="polite">
                 <!-- TODO: React will mount here -->
@@ -49,6 +59,10 @@
         </section>
     </main>
 
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
